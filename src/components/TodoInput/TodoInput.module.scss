@@ -1,0 +1,25 @@
+@import '../../utils/display.scss';
+@import '../../utils/button_mixin.scss';
+@import '../../utils/variables.scss';
+
+
+.main {
+    width: 70%;
+    margin: 20px auto;
+    text-align: center;
+    @include flex-column;
+    h3 { font-weight: 500 }
+}
+
+.Input {
+    outline: none;
+    border-radius: $borderRadius;
+    padding: 4px 0;
+    &::placeholder {
+        padding-left: 12px;
+    }
+}
+
+.btn {
+    @include btn;
+}
