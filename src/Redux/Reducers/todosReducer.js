@@ -54,8 +54,8 @@ export const setCheckedThunkCreator = (id) => (dispatch) => {
   dispatch(setCheckedAC(id));
 };
 
-export const addTodosThunkCreator = (name, checked) => async (dispatch) => {
-  await dispatch(addTodosAC(name, checked));
+export const addTodosThunkCreator = (name, checked) => (dispatch) => {
+  dispatch(addTodosAC(name, checked));
 };
 
 export default todosReducer;

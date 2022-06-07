@@ -20,7 +20,7 @@ function TodoList({ todos, setChecked }) {
         <button>Done</button>
         <button>Todo</button>
       </div>
-      <div>{newTodos}</div>
+      <div className={classes.list}>{newTodos}</div>
     </div>
   );
 }

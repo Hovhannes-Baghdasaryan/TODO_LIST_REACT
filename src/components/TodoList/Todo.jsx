@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "./TodoList.module.scss";
+import styles from "./checkBox.module.scss";
+import IsChecked from "../common/Messages";
 
 function Todo({ setChecked, checked, todo }) {
   const [active, setActive] = useState(false);
@@ -8,23 +10,20 @@ function Todo({ setChecked, checked, todo }) {
 
   useEffect(() => {
     if (active) setChecked(todo.id);
+    setActive(false);
   }, [active]);
 
   return (
     <div className={classes.todo}>
       <div>
-        <span>Id:</span> <span>{todo.id}</span>
+        <IsChecked name={todo.name} check={checked} />
       </div>
-      <div>
-        <span>Name:</span> <span>{todo.name} </span>
-      </div>
-      <div className={classes.checkbox}>
+      <div className={styles.checkbox}>
         <label>
           <input type="checkbox" onChange={activateMode} />
-          <span className={classes.checkboxMaterial}>
-            <span className={classes.check}></span>
-          </span>{" "}
-          Beauty
+          <span className={styles.checkboxMaterial}>
+            <span className={styles.check}></span>
+          </span>
         </label>
       </div>
     </div>
