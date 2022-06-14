@@ -1,5 +1,7 @@
 const addTodos = "addTodos";
 const setChecked = "setChecked";
+const setValue = "setValue";
+const DeleteValue = "DeleteValue";
 
 const initialState = {
   todos: [],
@@ -34,6 +36,22 @@ const todosReducer = (state = initialState, action) => {
         }),
       };
 
+    case setValue:
+      return {
+        ...state,
+        todos: state.todos.map((item) => {
+          if (item.id === action.id)
+            return { id: action.id, name: action.value, checked: false };
+          return { ...item };
+        }),
+      };
+
+    case DeleteValue:
+      return {
+        ...state,
+        todos: state.todos.filter((item) => item.id !== action.id),
+      };
+
     default:
       return state;
   }
@@ -44,18 +62,29 @@ const addTodosAC = (name, checked) => ({
   name,
   checked,
 });
-
 const setCheckedAC = (id) => ({
   type: setChecked,
   id,
 });
+const setValueAC = (value, id) => ({
+  type: setValue,
+  value,
+  id,
+});
+const deleteValueAC = (id) => ({ type: DeleteValue, id });
 
 export const setCheckedThunkCreator = (id) => (dispatch) => {
   dispatch(setCheckedAC(id));
 };
-
 export const addTodosThunkCreator = (name, checked) => (dispatch) => {
   dispatch(addTodosAC(name, checked));
+};
+export const setValueThunkCreator = (value, id) => (dispatch) => {
+  dispatch(setValueAC(value, id));
+};
+
+export const deleteValueThunkCreator = (id) => (dispatch) => {
+  dispatch(deleteValueAC(id));
 };
 
 export default todosReducer;

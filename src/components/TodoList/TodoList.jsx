@@ -2,13 +2,15 @@ import React from "react";
 import classes from "./TodoList.module.scss";
 import Todo from "./Todo";
 
-function TodoList({ todos, setChecked }) {
+function TodoList({ todos, setChecked, setValue, deleteValue }) {
   const newTodos = todos.map((item, index) => (
     <Todo
       key={index}
       todo={item}
       checked={item.checked}
       setChecked={setChecked}
+      setValue={setValue}
+      deleteValue={deleteValue}
     />
   ));
 

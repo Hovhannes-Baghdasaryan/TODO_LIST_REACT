@@ -8,8 +8,9 @@ function TodoInput(props) {
   return (
     <form
       className={classes.main}
-      onSubmit={handleSubmit((data) => {
+      onSubmit={handleSubmit((data, e) => {
         props.addTodo(data.name, false);
+        e.target.reset();
       })}
     >
       <h3>TodoInput</h3>

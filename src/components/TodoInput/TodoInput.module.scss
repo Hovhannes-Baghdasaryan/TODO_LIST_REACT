@@ -4,6 +4,9 @@
 
 
 .main {
+    border: 2px solid gray;
+    border-radius: 12px;
+    padding: 20px;
     width: 70%;
     margin: 20px auto;
     text-align: center;
@@ -15,9 +18,8 @@
     outline: none;
     border-radius: $borderRadius;
     padding: 4px 0;
-    &::placeholder {
-        padding-left: 12px;
-    }
+    padding-left: 12px;
+    color: gray;
 }
 
 .btn {

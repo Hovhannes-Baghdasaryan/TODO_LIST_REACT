@@ -3,6 +3,8 @@
 
 .main {
     @include flex-column;
+    width: 70%;
+    margin: 20px auto;
     h3 {
         text-align: center;
         font-weight: 500;
@@ -11,19 +13,33 @@
 
 .buttons {
     @include flex-row();
-    justify-content: center;
-    gap: 25px;
+    justify-content: space-between;
     button {
         @include btn();
-        width: 24%;
+        width:  30%;
         padding: 8px 0;
     }
 }
 
+
 .todo {
     @include flex-row;
     justify-content: space-between;
-    margin: 8px auto;
-    width: 79%;
+    width: 100%;
+    border: .4px solid gray;
+    box-shadow: inset 1px 1px 1px 0 gray; 
+    border-radius: 2px;
+    padding: 8px; 
+    .editInput {
+        outline: none;
+    }
+}
+
+.list {
+    @include flex-column;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 15px;
 }
 

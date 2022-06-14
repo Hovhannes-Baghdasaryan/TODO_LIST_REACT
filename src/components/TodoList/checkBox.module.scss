@@ -12,7 +12,9 @@ h2 {
     background: $lightbg-text;
 }
 .checkbox {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 15px;
     transform: translateZ(0); // Force 3d rendering
     label {
         cursor: pointer;
